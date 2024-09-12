@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #0d0d0d;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d30303;
+    text-shadow: 0 0 10px rgba(211, 3, 3, 0.8);
+}
+
+.hamburg, .cancel {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.nav-container .links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-container .links a {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-container .links a:hover {
+    color: #d30303;
+    border-bottom: 2px solid #d30303;
+}
+
+.dropdown {
+    z-index: 999;
+    position: absolute;
+    top: -500px;
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(8px) brightness(30%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.dropdown .links a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.dropdown .links a:hover {
+    background-color: #d30303;
+}
+
+section {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.main-container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-container .content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #d30303;
+}
+
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.social-links i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #d30303;
+    border-radius: 50%;
+    color: #d30303;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links i:hover {
+    background-color: #d30303;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(211, 3, 3, 0.8);
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.main-container .image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Circular frame */
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(211, 3, 3, 0.5);
+    margin-right: 20px; /* Adjust spacing */
+}
+
+.main-container .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire circle */
+}
+
+/* Responsive Design */
+@media (max-width: 884px) {
+    .nav-container .links {
+        display: none;
+    }
+
+    .hamburg, .cancel {
+        display: block;
+    }
+
+    .main-container {
+        flex-direction: column-reverse;
+    }
+
+    .main-container .content {
+        width: 100%;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 440px) {
+    .main-container .content {
+        padding: 1rem;
+    }
+
+    .main-container .content h1 {
+        font-size: 1.8rem;
+    }
+}

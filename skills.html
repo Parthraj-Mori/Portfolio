@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="skills.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Mori <span>Parthraj</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Skills Section -->
+    <section>
+        <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">My Skills</h1>
+        <div class="skill-sections">
+            <!-- Technical Skills Section -->
+            <div class="skill-section">
+                <h2 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">Technical Skills</h2>
+                <div class="skill python" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
+                    <span>Python</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">90%</div>
+                </div>
+                <div class="skill ml" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <span>Machine Learning</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">85%</div>
+                </div>
+                <div class="skill sql" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
+                    <span>SQL</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">80%</div>
+                </div>
+                <div class="skill data-analysis" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">
+                    <span>Data Analysis</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">75%</div>
+                </div>
+            </div>
+
+            <!-- Soft Skills Section -->
+            <div class="skill-section">
+                <h2 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">Soft Skills</h2>
+                <div class="skill problem-solving" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
+                    <span>Problem Solving</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">90%</div>
+                </div>
+                <div class="skill communication" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <span>Communication</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">85%</div>
+                </div>
+                <div class="skill teamwork" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
+                    <span>Teamwork</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="skill-level">80%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
