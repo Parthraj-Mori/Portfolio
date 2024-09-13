@@ -9,12 +9,12 @@
 
 body {
     width: 100%;
-    height: 100vh;
     background-color: #0d0d0d;
     color: #fff;
     overflow-x: hidden;
 }
 
+/* Navigation */
 nav {
     width: 100%;
     height: 10vh;
@@ -23,15 +23,19 @@ nav {
     background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     z-index: 1000;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    /* justify-content: space-around; */
 }
 
 .nav-container {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 2rem;
+    position: relative; /* Add for positioning dropdown */
 }
 
 .logo {
@@ -46,16 +50,21 @@ nav {
     text-shadow: 0 0 10px rgba(211, 3, 3, 0.8);
 }
 
-.hamburg, .cancel {
-    display: none;
+/* Add display for hamburger icon */
+.hamburg ,
+.cancel {
     cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
     color: white;
-    font-size: 2.5rem;
+    display: none;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
 }
 
 .nav-container .links {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .nav-container .links a {
@@ -72,32 +81,41 @@ nav {
     border-bottom: 2px solid #d30303;
 }
 
+/* Dropdown (For Mobile) */
 .dropdown {
-    z-index: 999;
+    z-index: 100;
     position: absolute;
-    top: -500px;
+    top: 0;
+    transform: translateY(-500px);
     width: 100%;
     height: auto;
-    backdrop-filter: blur(8px) brightness(30%);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
 }
+
+/* .dropdown.active {
+    display: block;
+    top: 100%;
+} */
 
 .dropdown .links a {
-    display: block;
-    padding: 15px;
-    color: #fff;
-    text-align: center;
-    font-size: 1.2rem;
+    display: flex;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s linear;
 }
-
 .dropdown .links a:hover {
     background-color: #d30303;
 }
 
+/* Section and Main Container */
 section {
     width: 100%;
-    height: 90vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,9 +124,8 @@ section {
 
 .main-container {
     width: 80%;
-    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -151,18 +168,18 @@ section {
 }
 
 .social-links i {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
     background-color: transparent;
-    border: 2px solid #d30303;
+    border: 0.2rem solid rgb(211, 3, 3);
     border-radius: 50%;
-    color: #d30303;
-    margin: 0 10px;
-    text-align: center;
-    line-height: 40px;
+    color: rgb(211, 3, 3);
+    margin: 0 15px;
     font-size: 1.5rem;
-    transition: all 0.3s ease;
+    transition: 0.2s linear;
 }
 
 .social-links i:hover {
@@ -172,6 +189,7 @@ section {
     transform: scale(1.2);
 }
 
+/* Animations */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -191,6 +209,7 @@ section {
         opacity: 1;
     }
 }
+
 .main-container .image {
     width: 250px;
     height: 250px;
@@ -203,26 +222,39 @@ section {
 .main-container .image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire circle */
+    object-fit: cover;
 }
 
 /* Responsive Design */
 @media (max-width: 884px) {
+    nav .logo {
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
     .nav-container .links {
         display: none;
     }
 
-    .hamburg, .cancel {
+    .hamburg,
+    .cancel {
         display: block;
     }
 
     .main-container {
-        flex-direction: column-reverse;
+        flex-direction: column;
+        height: auto;
     }
 
     .main-container .content {
         width: 100%;
         padding: 2rem;
+    }
+
+    .main-container .image {
+        order: -1;
+        margin-bottom: 20px; /* Moves image above content */
     }
 }
 
@@ -233,5 +265,10 @@ section {
 
     .main-container .content h1 {
         font-size: 1.8rem;
+    }
+
+    .main-container .image {
+        width: 150px;
+        height: 150px;
     }
 }
