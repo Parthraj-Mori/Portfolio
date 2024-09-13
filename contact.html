@@ -7,28 +7,26 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="contact.css">
     <title>Contact - Portfolio</title>
-    <script src="https://cdn.emailjs.com/dist/email.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("YOUR_USER_ID"); // Initialize EmailJS with your user ID
-        })();
-        
-        function sendMail() {
-            var params = {
-                name : document.getElementById("exampleInputPassword1").value,
-                email: document.getElementById("exampleInputEmail1").value,
-                subject: document.getElementById("exampleInputSubject1").value,
-                message: document.getElementById("exampleInputMessage1").value
-            };
-
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
-            .then(function(response) {
-                alert("Email successfully sent!");
-            }, function(error) {
-                alert("Failed to send email. Error: " + error);
-            });
-        }
-    </script>
+    <script>
+      function sendEmail() {
+          // Get the input values
+          var userEmail = document.getElementById('exampleInputEmail1').value;
+          var subject = document.getElementById('exampleInputSubject1').value;
+          var message = document.getElementById('exampleInputMessage1').value;
+      
+          // Your email address (the server owner's email)
+          var yourEmail = "210130107102@gecg28.ac.in"; // Change this to your email
+      
+          // Construct the mailto link
+          var mailtoLink = 'mailto:' + yourEmail 
+                         + '?subject=' + encodeURIComponent(subject) 
+                         + '&body=' + encodeURIComponent(message);
+      
+          // Open the user's default email client to send the email to you
+          window.location.href = mailtoLink;
+      }
+      </script>
+      
 </head>
 <body>
     <nav>
@@ -61,54 +59,52 @@
     <section id="contact" class="contact">
         <div class="contact-div">
           <h3 class="">Contact Me.</h3>
-          <form
-            action="mailto:210130107102@gecg28.ac.in"
-            method="post"
-            enctype="text/plain"
-          >
+          <form id="contactForm" onsubmit="sendEmail(); return false;">
             <div class="form-group">
-              <label for="exampleInputPassword1">Name</label>
-              <input
-                type="Name"
-                class="form-control"
-                id="exampleInputName1"
-                placeholder="Name"
-              />
+                <label for="exampleInputName1">Name</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputName1"
+                    placeholder="Name"
+                    required
+                />
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                required
-              />
-              <small id="emailHelp" class="form-text text-muted"
+                <label for="exampleInputEmail1">Your Email address</label> <!-- This field is now for the client -->
+                <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    placeholder="Enter your email"
+                    required
+                />
+                <small id="emailHelp" class="form-text text-muted"
                 >We'll never share your email with anyone else.</small
               >
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Subject</label>
-              <input
-                type="Subject"
-                class="Subject"
-                id="exampleInputSubject1"
-                placeholder="Subject"
-              />
+                <label for="exampleInputSubject1">Subject</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputSubject1"
+                    placeholder="Subject"
+                    required
+                />
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Message</label>
-              <input
-                type="Message"
-                class="Message"
-                id="exampleInputMessage1"
-                placeholder="Message"
-              />
+                <label for="exampleInputMessage1">Message</label>
+                <textarea
+                    class="form-control"
+                    id="exampleInputMessage1"
+                    placeholder="Message"
+                    required
+                ></textarea>
             </div>
             <button type="submit" class="btn btn-dark btn-block">Send</button>
-          </form>
+        </form>
+        
         </div>
       </section>
       <footer class="footer">
