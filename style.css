@@ -134,6 +134,7 @@ section {
 .content p {
     font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
     margin: 10px 0;
+    line-height: 2;
 }
 
 .social-links i {
